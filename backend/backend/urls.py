@@ -17,7 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from recommendation.views import get_recommendations
+from recommendation.views import UserRegisterView, UserLoginView, UserLogoutView
 
 urlpatterns = [
+    path("register/", UserRegisterView.as_view(), name="user-register"),
+    path("login/", UserLoginView.as_view(), name="user-login"),
+    path("logout/", UserLogoutView.as_view(), name="user-logout"),
     path("api/recommendations/", get_recommendations),
 ]
